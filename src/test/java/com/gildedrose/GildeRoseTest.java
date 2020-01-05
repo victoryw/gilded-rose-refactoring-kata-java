@@ -1,7 +1,6 @@
 package com.gildedrose;
 
 import com.victory.org.approvaltests.reporters.Junit5Reporter;
-import org.approvaltests.Approvals;
 import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
@@ -11,12 +10,10 @@ class GildedRoseTest {
     @UseReporter(Junit5Reporter.class)
     @Test
     public void should_update_quality() {
-        final var sellIn = 0;
-        final var quality = 0;
         CombinationApprovals.verifyAllCombinations(this::doUpdatedQuality,
-                new String[]{"foo", "Aged Brie"},
-                new Integer[]{sellIn},
-                new Integer[]{quality});
+                new String[]{"foo", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"},
+                new Integer[]{-1, 0, 11},
+                new Integer[]{-1, 0, 49, 50});
     }
 
     private String doUpdatedQuality(String name, int sellIn, int quality) {
